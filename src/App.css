@@ -11,7 +11,7 @@ body {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* Optional: Adds a slight upward movement */
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
@@ -20,5 +20,5 @@ body {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 1s forwards; /* Adjust duration as needed */
+  animation: fadeIn 1s forwards;
 }
