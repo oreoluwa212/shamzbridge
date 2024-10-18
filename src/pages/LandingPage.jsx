@@ -6,10 +6,9 @@ import AboutUs from '../components/AboutUs'
 import TestimonialsSection from '../components/TestimonialsSection'
 import FAQs from '../components/FAQs'
 
-
 export const LandingPage = () => {
     return (
-        <div className="w- flex flex-col">
+        <div style={{ overflowX: 'hidden' }} className="w-full flex flex-col">
             <NavBar/>
             <HeroSection />
             <AboutUs/>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { logo } from "../assets";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -12,6 +12,14 @@ const NavBar = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isSidebarOpen]);
 
   return (
     <section className="sticky top-0 z-50 flex bg-[#fafafa] text-black items-center justify-between h-[100px] w-full px-[5%]">

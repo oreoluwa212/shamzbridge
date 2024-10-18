@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -29,13 +30,23 @@ const HeroSection = () => {
     };
   }, []);
 
+  const handleImageLoad = () => {
+    setIsImageLoaded(true);
+  };
+
   return (
     <section ref={sectionRef} className="relative w-[100%] h-[85vh]">
-      <img
-        src={homepage}
-        alt=""
-        className="absolute w-full h-full object-cover rounded-b-[26px]"
-      />
+      {!isImageLoaded && (
+        <div className="absolute w-full h-full bg-gray-200 rounded-b-[26px] animate-pulse"></div>
+      )}
+      {isVisible && (
+        <img
+          src={homepage}
+          alt=""
+          className={`absolute w-full h-full object-cover rounded-b-[26px] transition-opacity duration-500 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={handleImageLoad}
+        />
+      )}
       <img
         src={overlap}
         alt=""
